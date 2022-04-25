@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
 import os
 
 if os.name == "nt":
@@ -31,13 +32,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+env = environ.Env(DEBUG=(bool, False))
+
+environ.Env.read_env(env_file=".env")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-yla6o4b8^+v3*a42&+*$$(sb3z1^xn*+b()o)@ec(z7^ok8c_a"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -97,8 +102,12 @@ WSGI_APPLICATION = "hospitals_api.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "NAME": env("POSTGRES_DBNAME"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASS"),
+        "HOST": env("PG_HOST"),
+        "PORT": env("PG_PORT"),
     }
 }
 
@@ -146,4 +155,4 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-GDAL_LIBRARY_PATH = r"D:\Python\geodjango\django-hospitals-api\hospital-src\env\Lib\site-packages\osgeo\gdal304.dll"
+# GDAL_LIBRARY_PATH = r"D:\Python\geodjango\django-hospitals-api\hospital-src\env\Lib\site-packages\osgeo\gdal304.dll"
