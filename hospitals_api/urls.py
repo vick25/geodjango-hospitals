@@ -19,6 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("hospitals.urls")),
+    path("", include("boundaries.urls")),
 ]
 
 admin.site.site_header = "Hospitals Admin"
