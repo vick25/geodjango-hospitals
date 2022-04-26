@@ -6,6 +6,7 @@ colorama==0.4.4
 Django==3.2.13
 django-environ==0.8.1
 django-filter==21.1
+django-leaflet==0.28.2
 djangorestframework==3.13.1
 djangorestframework-gis==0.18
 flake8==4.0.1

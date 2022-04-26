@@ -60,6 +60,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_gis",
+    "leaflet",
 ]
 
 PROJECTY_APP = [
@@ -159,3 +160,11 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # GDAL_LIBRARY_PATH = r"D:\Python\geodjango\django-hospitals-api\hospital-src\env\Lib\site-packages\osgeo\gdal304.dll"
+LEAFLET_CONFIG = {
+    "DEFAULT_CENTER": (-1.94, 29.87),
+    "DEFAULT_ZOOM": 8,
+    "MAX_ZOOM": 20,
+    "MIN_ZOOM": 3,
+    "SCALE": "both",
+    "ATTRIBUTION_PREFIX": "Victor Kadiata Hospitals API",
+}
