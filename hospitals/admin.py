@@ -1,7 +1,7 @@
-import imp
 from django.contrib import admin
 from leaflet.admin import LeafletGeoAdmin
 from .models import Hospital
+
 
 # Register your models here.
 class HospitalAdmin(LeafletGeoAdmin):

@@ -1,10 +1,9 @@
-import imp
-from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Boundary
 from .serializers import BoundarySerializer
 
 from django.contrib.gis.db.models.functions import Area
+
 
 # Create your views here.
 class BoundaryViewset(viewsets.ModelViewSet):

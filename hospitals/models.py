@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 # Create your models here.
 class Hospital(models.Model):
     name = models.CharField(_("Hospital Name"), max_length=200)

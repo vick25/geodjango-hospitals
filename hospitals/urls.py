@@ -1,4 +1,3 @@
-from django.urls import URLPattern
 from rest_framework.routers import DefaultRouter
 from .views import HospitalViewSet
 
